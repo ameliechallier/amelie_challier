@@ -129,7 +129,7 @@ View(temp)
 expanded.data <- cbind(temp, "pred" = predict(analysis2, temp, type="response"))
 View(expanded.data)
 
-# Plotting the data for fixed values of temperature = 25 캜
+# Plotting the data for fixed values of temperature = 25 째C
  # at time = 24
 ggplot(subset(expanded.data, Time == 24 & Temp == 25) 
        , aes(x = Conc.Log10, col = Strain)) + 
@@ -143,7 +143,7 @@ ggplot(subset(expanded.data, Time == 6 & Temp == 25)
   geom_line(aes(y = pred)) +
   scale_color_manual(values = wes_palette("Darjeeling1")) + 
   theme_light(base_size = 12) +
-  labs(x = "Log10(ELD50)", y = "Probability of infection") #Define axis na
+  labs(x = "Log10(ELD50)", y = "Probability of infection") 
 
 # Plotting the data for fixed values of Time = 12 hours
 # at temp = 15
@@ -158,7 +158,7 @@ ggplot(subset(expanded.data, Time == 12 & Temp == 15)
 # Plotting the data for fixed values of Time = 12 hours
 # at temp = 35
 
-ggplot(subset(expanded.data, Time == 12 & Temp == 35) o look at
+ggplot(subset(expanded.data, Time == 12 & Temp == 35)
        , aes(x = Conc.Log10, col = Strain)) + 
   geom_line(aes(y = pred)) +
   scale_color_manual(values = wes_palette("Darjeeling1")) + 
@@ -212,7 +212,7 @@ T_50_H5N7_conc6.7 <- function(Temp) {
     (0.205617-0.016482*Temp)
 }
 # plot the corresponding curve
-curve(T_50_H5N7_conc6.7, from=15, to=35, xlab='Temperature (캜)',  ylim=c(0,80), ylab='T_50 (h)', col = "#9C964A", main='H5N7')
+curve(T_50_H5N7_conc6.7, from=15, to=35, xlab='Temperature (째C)',  ylim=c(0,80), ylab='T_50 (h)', col = "#9C964A", main='H5N7')
 
 # resolve the equation for Conc.Log10 = 7.3
 
@@ -221,7 +221,7 @@ T_50_H5N7_conc7.3 <- function(Temp) {
     (0.205617-0.016482*Temp)
 }
 # plot the corresponding curve
-curve(T_50_H5N7_conc7.3, from=15, to=35, xlab='Temperature (캜)', col = "#85D4E3", ylab='T_50 (h)', add=TRUE)
+curve(T_50_H5N7_conc7.3, from=15, to=35, xlab='Temperature (째C)', col = "#85D4E3", ylab='T_50 (h)', add=TRUE)
 
 # resolve the equation for Conc.Log10 = 7.9
 
@@ -230,7 +230,7 @@ T_50_H5N7_conc7.9 <- function(Temp) {
     (0.205617-0.016482*Temp)
 }
 # plot the corresponding curve
-curve(T_50_H5N7_conc7.9, from=15, to=35, xlab='Temperature (캜)', ylab='T_50 (h)', col = "#F4B5BD", add= TRUE)
+curve(T_50_H5N7_conc7.9, from=15, to=35, xlab='Temperature (째C)', ylab='T_50 (h)', col = "#F4B5BD", add= TRUE)
 
 
 ## H7N1    
@@ -243,7 +243,7 @@ T_50_H7N1_conc7.3 <- function(Temp) {
 }
 # plot the corresponding curve
 
-curve( T_50_H7N1_conc7.3, from=15, to=35, xlab='Temperature (캜)', ylim=c(0,60), col = "#9C964A", ylab='T_50 (h)', main='H7N1')
+curve( T_50_H7N1_conc7.3, from=15, to=35, xlab='Temperature (째C)', ylim=c(0,60), col = "#9C964A", ylab='T_50 (h)', main='H7N1')
 
 # resolve the equation for Conc.Log10 = 7.9
 
@@ -253,7 +253,7 @@ T_50_H7N1_conc7.9 <- function(Temp) {
 }
 # plot the corresponding curve
 
-curve( T_50_H7N1_conc7.9, from=15, to=35, xlab='Temperature (캜)', ylim=c(0,100), col ="#85D4E3", ylab='T_50 (h)', main='H7N1 Conc.Log10 7.9', add = TRUE)
+curve( T_50_H7N1_conc7.9, from=15, to=35, xlab='Temperature (째C)', ylim=c(0,100), col ="#85D4E3", ylab='T_50 (h)', main='H7N1 Conc.Log10 7.9', add = TRUE)
 
 # resolve the equation for Conc.Log10 = 8.5
 
@@ -263,12 +263,4 @@ T_50_H7N1_conc8.5 <- function(Temp) {
 }
 # plot the corresponding curve
 
-curve( T_50_H7N1_conc8.5, from=15, to=35, xlab='Temperature (캜)', ylim=c(0,100), col = "#F4B5BD", ylab='T_50 (h)', main='H7N1 Conc.Log10 8.5', add = TRUE)
-
-
-#resolving equation for time
-T_50_H7N1_conc7.3 <- function(Time) {
-  (-12.86*1 + 1.76*1*7.3 + 16.27 - 0.21*Time-2.33*7.3)/
-    (0.21-0.02*Time)
-}
-curve( T_50_H7N1_conc7.3, from=0, to=50, xlab='Time', ylab='T_50', main='H7N1 Conc.Log10 7.3', add = TRUE)
+curve( T_50_H7N1_conc8.5, from=15, to=35, xlab='Temperature (째C)', ylim=c(0,100), col = "#F4B5BD", ylab='T_50 (h)', main='H7N1 Conc.Log10 8.5', add = TRUE)
